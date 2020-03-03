@@ -1,6 +1,10 @@
 # AI_FlappyBird
 An AI plays FlappyBird by using NEAT-python, pygame
 
+# Tools
+* neat-python
+* pickle
+
 # Instructions
 Start FlappyBird.py and watch AI play the game
 
