@@ -3,7 +3,7 @@ import pygame
 import neat
 import random
 import pickle
-import visualize
+#import visualize
 import time
 
 pygame.init()
@@ -187,7 +187,7 @@ def draw_window(win, birds, pipes, base, score, gen, pipe_ind):
                                  (pipes[pipe_ind].x + pipes[pipe_ind].PIPE_BOTTOM.get_width() / 2,
                                   pipes[pipe_ind].height), 10)
             except:
-                print('error')
+               # print('error')
                 pass
 
         bird.draw(win)
@@ -218,7 +218,7 @@ def main(genomes, config):
     score = 0
     run = True
     while run and len(birds) >0:
-        clock.tick(30)
+        clock.tick(120)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -275,12 +275,12 @@ def main(genomes, config):
         base.move()
         draw_window(win, birds, pipes, base, score, GEN, pipe_ind)
 
-        if score >= 40:
-            pickle_out = open("best.pickle", "wb")
-            pickle.dump(nets[0], pickle_out)
-            pickle_out.close()
-            print("\nOverride best.pickle!\n")
-            break
+        # if score >= 40:
+        #     pickle_out = open("best.pickle", "wb")
+        #     pickle.dump(nets[0], pickle_out)
+        #     pickle_out.close()
+        #     print("\nOverride best.pickle!\n")
+        #     break
 
 
 def run(config_path):
@@ -293,7 +293,7 @@ def run(config_path):
     p.add_reporter(stats)
 
     winner = p.run(main, 50)
-    print('\nBest genome: \n{!s}'.format(winner))
+    # print('\nBest genome: \n{!s}'.format(winner))
 
 
 if __name__ == "__main__":
